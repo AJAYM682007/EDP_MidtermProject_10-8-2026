@@ -1,22 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
 
 function App() {
+  const myname = "AJ Megriño";
+  const myintro = "This is my first React project"
+  const [myvalue, setMyvalue] = useState(0)
+  const plusone = () => {
+    if(myvalue < 10) { 
+      setMyvalue(myvalue + 1)
+    }
+  }
+  const minusone = () => {
+    if(myvalue > 0) {
+      setMyvalue(myvalue - 1)
+    }
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Hello World. My name is {myname}</h1>
+        <h3>{myintro}</h3>
+        <div className="mydiv">
+          <h3>The value of x is {myvalue}</h3>
+          <button onClick={plusone}>+1</button>
+          <button onClick={minusone}>-1</button>
+        </div>
       </header>
     </div>
   );
